@@ -8,7 +8,7 @@ It uses [a JVM-compatible fork](https://github.com/regulad/GPlayApi) of the [Aur
 
 `GPlayApiCli` exposes a CLI with a complete help output and documented options.
 
-You can either download it from the nightly.link here (TODO) or use `./gradlew shadowJar` to compile it locally.
+You can either download it from the nightly.link [here](https://nightly.link/regulad/GPlayApiCli/workflows/build/master/shadow-jar.zip) or use `./gradlew shadowJar` to compile it locally.
 
 ```bash
 java -jar ./GPlayApiCli.jar --help
@@ -30,8 +30,11 @@ Example use-cases:
 * Get files without a middleman like APKMirror for CI pipelines that need APKs for modding/LLM-assisted automated RE.
 
 ```bash
-java -jar ./GPlayApiCli.jar download --path cpuz com.cpuid.cpu_z
-java -jar ./GPlayApiCli.jar download --path instagram com.instagram.android
+curl -L https://nightly.link/regulad/GPlayApiCli/workflows/build/master/shadow-jar.zip -o /tmp/download.zip
+unzip /tmp/download.zip -d /tmp
+
+java -jar /tmp/GPlayApiCli.jar download com.cpuid.cpu_z
+java -jar /tmp/GPlayApiCli.jar download com.instagram.android
 ```
 
 ## License

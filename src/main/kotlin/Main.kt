@@ -179,8 +179,9 @@ class GPlayDownload : CliktCommand(name = "download") {
         name = "id", 
         help = "The package ID of the app to download. Example: `com.instagram.android`"
     )
+    
     val outputPath: String by argument(
-        name = "path", 
+        name = "output", 
         help = "The folder to save the downloaded app into. Defaults to the current directory. Will be created if it does not exist."
     )
         .default(".")
