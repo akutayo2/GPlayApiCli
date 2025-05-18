@@ -16,7 +16,7 @@ java -jar ./GPlayApiCli.jar --help
 
 ## Supported Commands
 
-* [*] `download` - Download a free app from Google Play.
+* [x] `download` - Download a free app from Google Play.
 * [ ] `search` - Search for apps on Google Play.
 * [ ] `trending` - Get the top apps on Google Play.
 * [ ] `reviews` - Get the reviews for an app on Google Play.
