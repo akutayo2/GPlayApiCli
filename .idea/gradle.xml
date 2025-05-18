@@ -9,6 +9,8 @@
         <option name="modules">
           <set>
             <option value="/var/home/regulad/repositories/GPlayApiCli" />
+            <option value="/var/home/regulad/repositories/GPlayApiCli/gplayapi" />
+            <option value="/var/home/regulad/repositories/GPlayApiCli/gplayapi/lib" />
           </set>
         </option>
       </GradleProjectSettings>

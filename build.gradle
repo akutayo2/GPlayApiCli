@@ -9,6 +9,15 @@ version = '1.0-SNAPSHOT'
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     implementation(project(":gplayapi:lib"))
+    
+    // dependencies below are mutual between gplayapi and cli; 
+    // both use the same version of the library so the shadow jar can be used without conflicts
+    // so they are included in the library definitions (which are symlinked from the gplayapi submodule)
+    implementation(libs.squareup.okhttp)
+    implementation(libs.google.gson)
+    
+    // dependencies below are NOT needed by gplayapi and as such are not included in the library definitions
+    implementation("com.github.ajalt.clikt:clikt:5.0.3")
 }
 
 test {
@@ -19,7 +28,7 @@ kotlin {
 }
 
 shadowJar {
-    minimize()
+//    minimize() // breaks clikt -> mordant, which loads classes dynamically based on available resources
 
     archiveBaseName.set('GPlayApiCli')
     archiveClassifier.set('')
@@ -28,9 +37,12 @@ shadowJar {
     manifest {
         attributes 'Main-Class': 'xyz.regulad.MainKt'
     }
+    
+    from("gplayapi/lib/src/main/res/raw")
 }
 
 tasks.withType(AbstractArchiveTask).configureEach {
     preserveFileTimestamps = false
     reproducibleFileOrder = true
+    // no compression options
 }
