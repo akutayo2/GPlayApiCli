@@ -1,0 +1,3 @@
+[submodule "gplayapi"]
+	path = gplayapi
+	url = https://gitlab.com/AuroraOSS/gplayapi.git
